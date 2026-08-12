@@ -6,7 +6,7 @@ vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO catchorg/Catch2
     REF v${VERSION}
-    SHA512 bd349f7d2bda67213adb15f858d688591b4c526d31db09d5250358b95d636b347eb99a6600174df75cf5b71058d63db700f5af736fd1d3d1ebda12fadc43bc53
+    SHA512 313d413fe2daa070a60abe17641d112da72320a917cd96bcbda3931d4c47bbca81f669bd7724387bc63a3614112fc12ae8228043bf58a676d0191ee5b16bc7a1
     HEAD_REF devel
     PATCHES
         fix-install-path.patch
@@ -14,7 +14,7 @@ vcpkg_from_github(
 
 vcpkg_check_features(OUT_FEATURE_OPTIONS OPTIONS
     FEATURES
-        thread-safe-assertions CATCH_CONFIG_EXPERIMENTAL_THREAD_SAFE_ASSERTIONS
+        thread-safe-assertions CATCH_CONFIG_THREAD_SAFE_ASSERTIONS
 )
 
 vcpkg_cmake_configure(
@@ -42,4 +42,5 @@ file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/include/catch2/benchmark/internal")
 file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/include/catch2/generators/internal")
 
 file(WRITE "${CURRENT_PACKAGES_DIR}/include/catch.hpp" "#include <catch2/catch_all.hpp>")
+
 vcpkg_install_copyright(FILE_LIST "${SOURCE_PATH}/LICENSE.txt")

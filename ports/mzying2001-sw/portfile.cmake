@@ -2,7 +2,7 @@ vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO Mzying2001/sw
     REF ${VERSION}
-    SHA512 4fe87760bee1145416cc53ea7471e6a53ba3d896d1803b880909aabd3f5a8960e0cd46b058dd3b59a370f8b58860914cfb4470587b2becf7de186964f15bdf8e
+    SHA512 9879390d9b85010f0f93ff864f01879af6974f4370049bd3aeb7008c227ed140249f65eac40c0c485de0c8ae31cfeae3a919b7a31da8c8bca5cf844f23139f04
     HEAD_REF main
 )
 
@@ -14,7 +14,7 @@ vcpkg_cmake_install()
 
 vcpkg_cmake_config_fixup(
     PACKAGE_NAME sw
-    CONFIG_PATH share/mzying2001-sw
+    CONFIG_PATH share/sw
 )
 
 vcpkg_install_copyright(FILE_LIST ${SOURCE_PATH}/LICENSE)

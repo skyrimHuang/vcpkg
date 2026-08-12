@@ -2,8 +2,10 @@ vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO getml/reflect-cpp
     REF "v${VERSION}"
-    SHA512 92feee43ac407013c15b7608637061fd5c22ccf9309a7f6ff7f60dbdf13e41aad0ad1200354da6f27a6d0824cabd7a0b0a067675b1625c2e1b7ec9017b3c3f4a
+    SHA512 527b8962754b2a5c48e63df72fe5030bceaa40c10762c4fd2ec1d084d9ced5726129cac9f1045fd818888e8468283f6867a5cbdd11bae290a4111b4a67eb573f
     HEAD_REF main
+    PATCHES
+        fix-bson.patch
 )
 
 if(VCPKG_TARGET_IS_WINDOWS)
@@ -16,8 +18,10 @@ vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS
         bson                REFLECTCPP_BSON
         capnproto           REFLECTCPP_CAPNPROTO
         cbor                REFLECTCPP_CBOR
+        csv                 REFLECTCPP_CSV
         flexbuffers         REFLECTCPP_FLEXBUFFERS
         msgpack             REFLECTCPP_MSGPACK
+        parquet             REFLECTCPP_PARQUET
         toml                REFLECTCPP_TOML
         ubjson              REFLECTCPP_UBJSON
         xml                 REFLECTCPP_XML

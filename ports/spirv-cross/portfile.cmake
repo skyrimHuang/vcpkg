@@ -4,7 +4,7 @@ vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO KhronosGroup/SPIRV-Cross
     REF vulkan-sdk-${VERSION}
-    SHA512 7b3c68fb9c2a8ff665096d03291e0339b679f80cc190b626c94a072a515a702d1bf168a6e0c618795273570a8e5c29498c041b92beb860d931f000bc8c3bb72f
+    SHA512 b02d43382fec30ff4f594794d153918eb1fd9b3329603fbffab0249e29c60c1364d2607317d7a2c6c2c0a61871d669166c4395bace288595ef4e472badaebfd2
     HEAD_REF master
 )
 
@@ -25,6 +25,12 @@ vcpkg_cmake_configure(
 )
 vcpkg_cmake_install()
 vcpkg_copy_pdbs()
+if(NOT VCPKG_BUILD_TYPE)
+    if(VCPKG_TARGET_IS_WINDOWS)
+        vcpkg_replace_string("${CURRENT_BUILDTREES_DIR}/${TARGET_TRIPLET}-dbg/spirv-cross-c.pc" "-lspirv-cross-c" "-lspirv-cross-cd")
+    endif()
+    file(COPY "${CURRENT_BUILDTREES_DIR}/${TARGET_TRIPLET}-dbg/spirv-cross-c.pc" DESTINATION "${CURRENT_PACKAGES_DIR}/debug/lib/pkgconfig")
+endif()
 vcpkg_fixup_pkgconfig()
 
 foreach(COMPONENT core c cpp glsl hlsl msl reflect util)
