@@ -11,13 +11,14 @@ vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO openssl/openssl
     REF "openssl-${VERSION}"
-    SHA512 c6c4ac5fe58be8657bb37b1345a2b0953f36be78619d1ad92daa785a3ca4273e6042c6315859d91a61417590299e0ef0ac7a7d609b382f6ee19e484e0c756c2c
+    SHA512 a89c08101fa1d7e3c09b14f4a90d450bcf336a4f6a3e6e4ea990e4deddcd9ce250472f9114438fd134ff4b47fe93dd47232308567088b2b1c0b2eb50e3b56bdf
     PATCHES
         cmake-config.patch
         command-line-length.patch
         script-prefix.patch
         windows/install-layout.patch
         windows/install-pdbs.patch
+        windows/install-programs.diff # https://github.com/openssl/openssl/issues/28744
         unix/android-cc.patch
         unix/move-openssldir.patch
         unix/no-empty-dirs.patch

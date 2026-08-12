@@ -2,7 +2,7 @@ vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO Blosc/c-blosc2
     REF "v${VERSION}"
-    SHA512 6dfcbb16bfd0da8b1eb5287b3ab06ee83c5d19955195c9dad855ae0de98af7b20202b83103d80fda2578bc7fdd32205f26cdc63e4660ddb9559c83b3c5b603ff
+    SHA512 08054ae218d5be8e2e3a7b2fcd9254b808ea8e5f6b4ed14c8c45423689d66eaec28b8e42186b282c246a406d9903794344a175eef7012181abe69e32eef16ecc
     HEAD_REF main
 )
 
@@ -34,6 +34,7 @@ vcpkg_cmake_configure(
         -DBUILD_EXAMPLES=OFF
         -DBUILD_STATIC=${BLOSC2_STATIC}
         -DBUILD_SHARED=${BLOSC2_SHARED}
+        -DBLOSC_DEPENDENCY_MODE=EXTERNAL
     MAYBE_UNUSED_VARIABLES
         CMAKE_DISABLE_FIND_PACKAGE_ZLIB_NG
         CMAKE_REQUIRE_FIND_PACKAGE_ZLIB
@@ -51,6 +52,6 @@ vcpkg_fixup_pkgconfig()
 file(COPY "${CMAKE_CURRENT_LIST_DIR}/usage" DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}")
 vcpkg_install_copyright(FILE_LIST "${SOURCE_PATH}/LICENSE.txt")
 
-file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/share/Modules") # Find modules that should not be used by vcpkg.
+file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/share/${PORT}/Modules") # Find modules that should not be used by vcpkg.
 file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/include")
 file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/share")

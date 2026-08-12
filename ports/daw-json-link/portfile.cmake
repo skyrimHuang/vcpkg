@@ -3,7 +3,7 @@ vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO beached/daw_json_link
     REF "v${VERSION}"
-    SHA512 1a74a943b06dd9c058ba1be6352da1c2f7b9a3a6fe95f298ad69f72aa092a912c1aa971952e8b123b61f01b3345269f9607675666bf58293cd91023a86431ac3
+    SHA512 63f77205bcb27bb6b31465932eac3f9bd9ccaa913ae0daadff0092a40ba8742e6792fdac22263d9200d2e916ea6227dfc7e1b806eb3ca69992f8ad5dfdef8f9f
     HEAD_REF release
 )
 
@@ -20,7 +20,7 @@ vcpkg_cmake_config_fixup(CONFIG_PATH share/${PORT}/cmake)
 # remove empty lib and debug/lib directories (and duplicate files from debug/include)
 file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug" "${CURRENT_PACKAGES_DIR}/lib")
 
-# Append the json-link and dragonbox license information into a single 
+# Append the json-link and dragonbox license information into a single
 # copyright file (they are both Boost v1.0 but it is good to be clear).
 file(APPEND "${SOURCE_PATH}/copyright" [=[+----------------------------------------------------------------------------+
 |                            json-link copywrite                             |

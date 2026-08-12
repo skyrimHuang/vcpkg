@@ -2,7 +2,7 @@ vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO nanomsg/nanomsg
     REF "${VERSION}"
-    SHA512 cc119acafe6e000b75299e866b4bace56ec6d8c90e7843ad773efad7b534296d6baf2b75b107c70a0e4fd4cee9763315d87b6f354676b7915732961b89c3adcb
+    SHA512 29acccabf48a37d0e3a3b56da3edcb86179659753e74a808fecb591bd7f96b26298e92d7a8cca4552dc6d49ec320cafae4f55ef663d227ae1172834434282fab
     HEAD_REF master
 )
 
