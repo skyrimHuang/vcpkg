@@ -1,9 +1,9 @@
 {
   "name": "gstreamer",
-  "version": "1.26.4",
+  "version": "1.28.6",
   "description": "GStreamer open-source multimedia framework core library",
   "homepage": "https://gstreamer.freedesktop.org/",
-  "license": "LGPL-2.0-only",
+  "license": "LGPL-2.1-or-later",
   "supports": "!uwp & !xbox",
   "dependencies": [
     "glib",
@@ -333,6 +333,19 @@
             "plugins-base"
           ]
         }
+      ]
+    },
+    "hls": {
+      "description": "Enable HTTP Live Streaming plugin",
+      "dependencies": [
+        {
+          "name": "gstreamer",
+          "default-features": false,
+          "features": [
+            "plugins-bad"
+          ]
+        },
+        "openssl"
       ]
     },
     "jpeg": {
@@ -846,9 +859,9 @@
           ]
         },
         "libx11",
+        "libxcb",
         "libxext",
-        "libxkbcommon",
-        "xcb"
+        "libxkbcommon"
       ]
     },
     "x264": {
